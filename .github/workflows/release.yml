@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           registry-url: 'https://registry.npmjs.org/'
-          node-version-file: '.nvmrc'
+          node-version: '18'
           cache: 'npm'
 
       - run: npm ci
@@ -58,11 +58,6 @@ jobs:
         run: |
           git tag ${{ steps.bump.outputs.ver }}
           git push origin HEAD:release --tags
-
-      - name: Set up .npmrc for publish
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm
         run: npm publish
