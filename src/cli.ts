@@ -1,10 +1,13 @@
-import { Command } from 'commander';
-import { registerDiffCommand } from './commands/diff';
-import { registerMigrateCommand } from './commands/migrate';
-import { registerSyncDataCommand } from './commands/sync-data';
+import { Command } from "commander";
+import { registerDiffCommand } from "./commands/diff";
+import { registerMigrateCommand } from "./commands/migrate";
+import { registerSyncDataCommand } from "./commands/sync-data";
 
 const program = new Command();
-program.name('kraken').description('Intelligent DB schema and data sync tool').version('0.1.0');
+program
+  .name("dbkrak")
+  .description("Intelligent DB schema and data sync tool")
+  .version("0.1.0");
 
 registerDiffCommand(program);
 registerMigrateCommand(program);

@@ -1,12 +1,13 @@
-# 🐙 Kraken – Phase 1 Roadmap (CLI-Only MVP)
+# 🐙 dbkrak – Phase 1 Roadmap (CLI-Only MVP)
 
-This document details the **Phase 1** scope of Kraken — the CLI-only MVP that bridges production data with test schemas in PostgreSQL.
+This document details the **Phase 1** scope of dbkrak — the CLI-only MVP that bridges production data with test schemas in PostgreSQL.
 
 ---
 
 ## 🎯 Objective
 
 Phase 1 focuses on building a **cross-platform CLI tool** that:
+
 - Connects to two PostgreSQL databases
 - Computes schema differences (test vs prod)
 - Generates SQL to bring the target schema up to date
@@ -17,16 +18,18 @@ Phase 1 focuses on building a **cross-platform CLI tool** that:
 
 ## 🧱 Core Features
 
-### 1. `kraken diff`
+### 1. `dbkrak diff`
 
 **Purpose**: Show the schema differences between two databases.
 
 #### Usage:
+
 ```bash
-kraken diff --from postgres://prod_db --to postgres://test_db
+dbkrak diff --from postgres://prod_db --to postgres://test_db
 ```
 
 #### What it should do:
+
 - Connect to both `--from` (source) and `--to` (target) PostgreSQL databases
 - Compare:
   - Tables
@@ -40,22 +43,25 @@ kraken diff --from postgres://prod_db --to postgres://test_db
   ```
 
 #### Deliverables:
+
 - Schema introspection
 - Diffing engine
 - Pretty CLI output
 
 ---
 
-### 2. `kraken migrate`
+### 2. `dbkrak migrate`
 
 **Purpose**: Generate SQL migration to align the target schema with the source.
 
 #### Usage:
+
 ```bash
-kraken migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
+dbkrak migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
 ```
 
 #### What it should do:
+
 - Reuse the `diff` logic
 - Output valid SQL statements to transform the target schema into the source schema
   ```sql
@@ -65,21 +71,24 @@ kraken migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
 - **Important**: Do not execute the SQL — only generate it
 
 #### Deliverables:
+
 - SQL generation logic
 - Optional output to file or stdout
 
 ---
 
-### 3. `kraken sync-data`
+### 3. `dbkrak sync-data`
 
 **Purpose**: Copy data from prod (source) into test (target), assuming the target schema matches.
 
 #### Usage:
+
 ```bash
-kraken sync-data --from postgres://prod_db --to postgres://test_db
+dbkrak sync-data --from postgres://prod_db --to postgres://test_db
 ```
 
 #### What it should do:
+
 - Connect to both databases
 - For each matching table:
   - Copy data from source to target
@@ -89,18 +98,19 @@ kraken sync-data --from postgres://prod_db --to postgres://test_db
   - `--tables=users,orders`: sync only specific tables
 
 #### Deliverables:
+
 - Data transfer engine
 - Insert or `COPY` logic with batching
 - Logging and basic stats per table
 
 ---
 
-### 4. `kraken help`
+### 4. `dbkrak help`
 
 Shows CLI usage, arguments, and available commands.
 
 ```bash
-kraken --help
+dbkrak --help
 ```
 
 ---
@@ -108,7 +118,7 @@ kraken --help
 ## 📂 Directory Structure (Phase 1)
 
 ```bash
-kraken/
+dbkrak/
 ├── src/
 │   ├── cli.ts              # Commander CLI entrypoint
 │   ├── commands/
@@ -132,22 +142,22 @@ kraken/
 
 ## ✅ Phase 1 Goals Checklist
 
-| Feature                | Status  |
-|------------------------|---------|
-| CLI scaffold           | ☐       |
-| Schema diffing         | ☐       |
-| Migration SQL output   | ☐       |
-| Data syncing engine    | ☐       |
-| Basic flags and config | ☐       |
-| Cross-platform support | ☐       |
+| Feature                | Status |
+| ---------------------- | ------ |
+| CLI scaffold           | ☐      |
+| Schema diffing         | ☐      |
+| Migration SQL output   | ☐      |
+| Data syncing engine    | ☐      |
+| Basic flags and config | ☐      |
+| Cross-platform support | ☐      |
 
 ---
 
 ## 🚀 What Comes Next (Beyond Phase 1)
 
-Once Phase 1 is complete, Kraken will evolve in future phases to include:
+Once Phase 1 is complete, dbkrak will evolve in future phases to include:
 
-- **Config-driven operations** (e.g., YAML or `.krakenrc`)
+- **Config-driven operations** (e.g., YAML or `.dbkrakrc`)
 - **Data masking and transformation plugins**
 - **Dry-run and rollback support**
 - **Schema versioning snapshots**

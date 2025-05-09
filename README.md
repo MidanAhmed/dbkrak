@@ -1,8 +1,8 @@
-# 🐙 Kraken
+# 🐙 dbkrak
 
-**Kraken** is a cross-platform CLI tool that intelligently merges **production database data** with the **test/staging schema**, allowing developers to test new schema changes on real data—safely, efficiently, and repeatably.
+**dbkrak** is a cross-platform CLI tool that intelligently merges **production database data** with the **test/staging schema**, allowing developers to test new schema changes on real data—safely, efficiently, and repeatably.
 
-> Kraken surfaces real data from the deep and applies it to future-ready schemas.
+> dbkrak surfaces real data from the deep and applies it to future-ready schemas.
 
 ---
 
@@ -10,7 +10,7 @@
 
 In typical software development lifecycles, test/staging environments often evolve ahead of production in terms of schema. However, production holds the most realistic and critical data. Reconciling these two environments is difficult and error-prone.
 
-> Kraken aims to create the "ideal test DB": **latest schema + real data** — intelligently, with full control and safety.
+> dbkrak aims to create the "ideal test DB": **latest schema + real data** — intelligently, with full control and safety.
 
 ---
 
@@ -29,26 +29,30 @@ In typical software development lifecycles, test/staging environments often evol
 ## 🚧 Phases of Development
 
 ### Phase 1 — MVP (CLI Tool)
+
 - [ ] Connect to two PostgreSQL databases
 - [ ] Detect and output schema differences
 - [ ] Generate migration SQL for test schema
 - [ ] Insert prod data into test schema (with column alignment)
 - [ ] CLI with subcommands:
-  - `kraken diff`
-  - `kraken migrate`
-  - `kraken sync-data`
+  - `dbkrak diff`
+  - `dbkrak migrate`
+  - `dbkrak sync-data`
 
 ### Phase 2 — Schema & Data Enhancements
+
 - [ ] Handle new columns with defaults/nulls
 - [ ] Rename/match fields using rules
 - [ ] Dry-run support and verbose logs
 
 ### Phase 3 — Data Masking & Profiles
+
 - [ ] Built-in anonymization (`faker`, `hash`, `nullify`)
 - [ ] Config-driven sync profiles (JSON/YAML)
 - [ ] Test output validation (row count, hash match, etc.)
 
 ### Phase 4 — GUI/Visualization (Optional)
+
 - [ ] Electron or Web-based UI
 - [ ] Schema diff viewer
 - [ ] Data mapping visualization
@@ -58,9 +62,11 @@ In typical software development lifecycles, test/staging environments often evol
 ## 🔧 Tech Stack
 
 ### Core Language
+
 - **TypeScript + Node.js** for portability and developer speed
 
 ### DB & CLI
+
 - `pg`: PostgreSQL client
 - `commander`: CLI framework
 - `chalk`: Terminal output styling
@@ -68,6 +74,7 @@ In typical software development lifecycles, test/staging environments often evol
 - `zod`: Schema validation
 
 ### Packaging
+
 - `pkg` or `esbuild` to produce standalone binaries
 - OS support: macOS, Linux, Windows
 
@@ -77,7 +84,8 @@ In typical software development lifecycles, test/staging environments often evol
 
 ```bash
 # via npm
-npm install -g kraken
+npm install -g dbkrak
 
 # or download binary from Releases
-./kraken --help
+./dbkrak --help
+```
