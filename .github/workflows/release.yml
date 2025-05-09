@@ -21,8 +21,9 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
           registry-url: 'https://registry.npmjs.org/'
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
       - run: npm ci
 
@@ -59,10 +60,7 @@ jobs:
           git push origin HEAD:release --tags
 
       - name: Set up .npmrc for publish
-        run: |
-          cat <<EOF > ~/.npmrc
-          //registry.npmjs.org/:_authToken=${NPM_TOKEN}
-          EOF
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
