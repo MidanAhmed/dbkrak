@@ -59,6 +59,9 @@ jobs:
           git tag ${{ steps.bump.outputs.ver }}
           git push origin HEAD:release --tags
 
+      - name: Configure npm for publishing
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
       - name: Publish to npm
         run: npm publish
         env:
