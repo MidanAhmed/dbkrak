@@ -1,8 +1,13 @@
-# 🐙 dbkrak
+# 🐙 krakn
 
-**dbkrak** is a cross-platform CLI tool that intelligently merges **production database data** with the **test/staging schema**, allowing developers to test new schema changes on real data—safely, efficiently, and repeatably.
+**krakn** is a cross-platform CLI tool that intelligently merges **production database data** with the **test/staging schema**, allowing developers to test new schema changes on real data—safely, efficiently, and repeatably.
 
-> dbkrak surfaces real data from the deep and applies it to future-ready schemas.
+---
+
+## 🚧 Status
+
+🔨 This project is currently under active development.  
+Expect rapid iteration, breaking changes, and incomplete features.
 
 ---
 
@@ -10,7 +15,7 @@
 
 In typical software development lifecycles, test/staging environments often evolve ahead of production in terms of schema. However, production holds the most realistic and critical data. Reconciling these two environments is difficult and error-prone.
 
-> dbkrak aims to create the "ideal test DB": **latest schema + real data** — intelligently, with full control and safety.
+> krakn aims to create the "ideal test DB": **latest schema + real data** — intelligently, with full control and safety.
 
 ---
 
@@ -35,9 +40,9 @@ In typical software development lifecycles, test/staging environments often evol
 - [ ] Generate migration SQL for test schema
 - [ ] Insert prod data into test schema (with column alignment)
 - [ ] CLI with subcommands:
-  - `dbkrak diff`
-  - `dbkrak migrate`
-  - `dbkrak sync-data`
+  - `krakn diff`
+  - `krakn migrate`
+  - `krakn sync-data`
 
 ### Phase 2 — Schema & Data Enhancements
 
@@ -84,8 +89,8 @@ In typical software development lifecycles, test/staging environments often evol
 
 ```bash
 # via npm
-npm install -g dbkrak
+npm install -g krakn
 
 # or download binary from Releases
-./dbkrak --help
+./krakn --help
 ```

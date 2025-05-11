@@ -1,6 +1,6 @@
-# 🐙 dbkrak – Phase 1 Roadmap (CLI-Only MVP)
+# 🐙 krakn – Phase 1 Roadmap (CLI-Only MVP)
 
-This document details the **Phase 1** scope of dbkrak — the CLI-only MVP that bridges production data with test schemas in PostgreSQL.
+This document details the **Phase 1** scope of krakn — the CLI-only MVP that bridges production data with test schemas in PostgreSQL.
 
 ---
 
@@ -18,14 +18,14 @@ Phase 1 focuses on building a **cross-platform CLI tool** that:
 
 ## 🧱 Core Features
 
-### 1. `dbkrak diff`
+### 1. `krakn diff`
 
 **Purpose**: Show the schema differences between two databases.
 
 #### Usage:
 
 ```bash
-dbkrak diff --from postgres://prod_db --to postgres://test_db
+krakn diff --from postgres://prod_db --to postgres://test_db
 ```
 
 #### What it should do:
@@ -50,14 +50,14 @@ dbkrak diff --from postgres://prod_db --to postgres://test_db
 
 ---
 
-### 2. `dbkrak migrate`
+### 2. `krakn migrate`
 
 **Purpose**: Generate SQL migration to align the target schema with the source.
 
 #### Usage:
 
 ```bash
-dbkrak migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
+krakn migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
 ```
 
 #### What it should do:
@@ -77,14 +77,14 @@ dbkrak migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
 
 ---
 
-### 3. `dbkrak sync-data`
+### 3. `krakn sync-data`
 
 **Purpose**: Copy data from prod (source) into test (target), assuming the target schema matches.
 
 #### Usage:
 
 ```bash
-dbkrak sync-data --from postgres://prod_db --to postgres://test_db
+krakn sync-data --from postgres://prod_db --to postgres://test_db
 ```
 
 #### What it should do:
@@ -105,12 +105,12 @@ dbkrak sync-data --from postgres://prod_db --to postgres://test_db
 
 ---
 
-### 4. `dbkrak help`
+### 4. `krakn help`
 
 Shows CLI usage, arguments, and available commands.
 
 ```bash
-dbkrak --help
+krakn --help
 ```
 
 ---
@@ -118,7 +118,7 @@ dbkrak --help
 ## 📂 Directory Structure (Phase 1)
 
 ```bash
-dbkrak/
+krakn/
 ├── src/
 │   ├── cli.ts              # Commander CLI entrypoint
 │   ├── commands/
@@ -155,9 +155,9 @@ dbkrak/
 
 ## 🚀 What Comes Next (Beyond Phase 1)
 
-Once Phase 1 is complete, dbkrak will evolve in future phases to include:
+Once Phase 1 is complete, krakn will evolve in future phases to include:
 
-- **Config-driven operations** (e.g., YAML or `.dbkrakrc`)
+- **Config-driven operations** (e.g., YAML or `.kraknrc`)
 - **Data masking and transformation plugins**
 - **Dry-run and rollback support**
 - **Schema versioning snapshots**
