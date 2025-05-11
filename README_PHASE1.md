@@ -1,6 +1,6 @@
-# 🐙 krakn – Phase 1 Roadmap (CLI-Only MVP)
+# 🐙 krakenn – Phase 1 Roadmap (CLI-Only MVP)
 
-This document details the **Phase 1** scope of krakn — the CLI-only MVP that bridges production data with test schemas in PostgreSQL.
+This document details the **Phase 1** scope of krakenn — the CLI-only MVP that bridges production data with test schemas in PostgreSQL.
 
 ---
 
@@ -18,14 +18,14 @@ Phase 1 focuses on building a **cross-platform CLI tool** that:
 
 ## 🧱 Core Features
 
-### 1. `krakn diff`
+### 1. `krakenn diff`
 
 **Purpose**: Show the schema differences between two databases.
 
 #### Usage:
 
 ```bash
-krakn diff --from postgres://prod_db --to postgres://test_db
+krakenn diff --from postgres://prod_db --to postgres://test_db
 ```
 
 #### What it should do:
@@ -50,14 +50,14 @@ krakn diff --from postgres://prod_db --to postgres://test_db
 
 ---
 
-### 2. `krakn migrate`
+### 2. `krakenn migrate`
 
 **Purpose**: Generate SQL migration to align the target schema with the source.
 
 #### Usage:
 
 ```bash
-krakn migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
+krakenn migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
 ```
 
 #### What it should do:
@@ -77,14 +77,14 @@ krakn migrate --from postgres://prod_db --to postgres://test_db > migrate.sql
 
 ---
 
-### 3. `krakn sync-data`
+### 3. `krakenn sync-data`
 
 **Purpose**: Copy data from prod (source) into test (target), assuming the target schema matches.
 
 #### Usage:
 
 ```bash
-krakn sync-data --from postgres://prod_db --to postgres://test_db
+krakenn sync-data --from postgres://prod_db --to postgres://test_db
 ```
 
 #### What it should do:
@@ -105,12 +105,12 @@ krakn sync-data --from postgres://prod_db --to postgres://test_db
 
 ---
 
-### 4. `krakn help`
+### 4. `krakenn help`
 
 Shows CLI usage, arguments, and available commands.
 
 ```bash
-krakn --help
+krakenn --help
 ```
 
 ---
@@ -118,7 +118,7 @@ krakn --help
 ## 📂 Directory Structure (Phase 1)
 
 ```bash
-krakn/
+krakenn/
 ├── src/
 │   ├── cli.ts              # Commander CLI entrypoint
 │   ├── commands/
@@ -155,9 +155,9 @@ krakn/
 
 ## 🚀 What Comes Next (Beyond Phase 1)
 
-Once Phase 1 is complete, krakn will evolve in future phases to include:
+Once Phase 1 is complete, krakenn will evolve in future phases to include:
 
-- **Config-driven operations** (e.g., YAML or `.kraknrc`)
+- **Config-driven operations** (e.g., YAML or `.krakennrc`)
 - **Data masking and transformation plugins**
 - **Dry-run and rollback support**
 - **Schema versioning snapshots**

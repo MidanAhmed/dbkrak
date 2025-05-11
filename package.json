@@ -1,5 +1,5 @@
 {
-  "name": "krakn",
+  "name": "krakenn",
   "version": "0.0.0",
   "description": "A cross-platform CLI tool that intelligently merges production database data with the test/staging schema, allowing developers to test new schema changes on real data.",
   "main": "src/cli.ts",

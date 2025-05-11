@@ -1,6 +1,6 @@
-# 🐙 krakn
+# 🐙 krakenn
 
-**krakn** is a cross-platform CLI tool that intelligently merges **production database data** with the **test/staging schema**, allowing developers to test new schema changes on real data—safely, efficiently, and repeatably.
+**krakenn** is a cross-platform CLI tool that intelligently merges **production database data** with the **test/staging schema**, allowing developers to test new schema changes on real data—safely, efficiently, and repeatably.
 
 ---
 
@@ -15,7 +15,7 @@ Expect rapid iteration, breaking changes, and incomplete features.
 
 In typical software development lifecycles, test/staging environments often evolve ahead of production in terms of schema. However, production holds the most realistic and critical data. Reconciling these two environments is difficult and error-prone.
 
-> krakn aims to create the "ideal test DB": **latest schema + real data** — intelligently, with full control and safety.
+> krakenn aims to create the "ideal test DB": **latest schema + real data** — intelligently, with full control and safety.
 
 ---
 
@@ -40,9 +40,9 @@ In typical software development lifecycles, test/staging environments often evol
 - [ ] Generate migration SQL for test schema
 - [ ] Insert prod data into test schema (with column alignment)
 - [ ] CLI with subcommands:
-  - `krakn diff`
-  - `krakn migrate`
-  - `krakn sync-data`
+  - `krakenn diff`
+  - `krakenn migrate`
+  - `krakenn sync-data`
 
 ### Phase 2 — Schema & Data Enhancements
 
@@ -89,8 +89,8 @@ In typical software development lifecycles, test/staging environments often evol
 
 ```bash
 # via npm
-npm install -g krakn
+npm install -g krakenn
 
 # or download binary from Releases
-./krakn --help
+./krakenn --help
 ```

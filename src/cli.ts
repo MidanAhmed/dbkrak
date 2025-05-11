@@ -5,7 +5,7 @@ import { registerSyncDataCommand } from "./commands/sync-data";
 
 const program = new Command();
 program
-  .name("krakn")
+  .name("krakenn")
   .description("Intelligent DB schema and data sync tool")
   .version("0.1.0");
 
